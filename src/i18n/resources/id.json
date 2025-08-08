@@ -1,0 +1,28 @@
+{
+  "profil": "Profil",
+  "history": "Sejarah",
+  "values": "Nilai",
+  "policy": "Kebijakan",
+  "work_guidelines": "Panduan Kerja",
+  "code_of_conduct": "Kode Etik",
+  "remote_policy": "Kebijakan Remote",
+  "contribution_rules": "Aturan Kontribusi",
+  "our_services": "Layanan Kami",
+ "custom_web_development": "Pengembangan Web Kustom",
+  "web_app_&_dashboard_development": "Pengembangan Aplikasi Web & Dashboard",
+  "mobile_app_development": "Pengembangan Aplikasi Mobile",
+  "ui_&_ux_design": "Desain UI & UX",
+  "seo_optimization": "Optimasi SEO",
+  "project": "Proyek",
+  "blog": "Blog",
+  "company": "Perusahaan",
+  "careers": "Karir",
+  "contact": "Kontak",
+  "hero": {
+    "title1": "Inovasi Digital. Kreativitas.",
+    "title2": "Percikan.",
+    "description": "Kami menghadirkan solusi digital yang berdampak dan kreatif untuk pertumbuhan bisnis Anda.",
+    "learnMore": "Pelajari Layanan Kami",
+    "contactUs": "Hubungi Kami"
+  }
+}

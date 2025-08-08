@@ -1,0 +1,28 @@
+{
+  "profil": "Profile",
+  "history": "History",
+  "values": "Values",
+  "policy": "Policy",
+  "work_guidelines": "Work Guidelines",
+  "code_of_conduct": "Code of Conduct",
+  "remote_policy": "Remote Policy",
+  "contribution_rules": "Contribution Rules",
+  "our_services": "Our Services",
+  "custom_web_development": "Custom Web Development",
+  "web_app_&_dashboard_development": "Web App & Dashboard Development",
+  "mobile_app_development": "Mobile App Development",
+  "ui_&_ux_design": "UI & UX Design",
+  "seo_optimization": "SEO Optimization",
+  "project": "Project",
+  "blog": "Blog",
+  "company": "Company",
+  "careers": "Careers",
+  "contact": "Contact",
+  "hero": {
+  "title1": "We Build Webs That Scale.",
+  "description": "DicTech Interactive delivers creative, high-performance websites for startups and businesses. Our S.P.A.R.K. approach helps simplify and accelerate your digital growth.",
+  "learnMore": "Explore Our Work",
+  "contactUs": "Let’s Collaborate"
+}
+
+}
