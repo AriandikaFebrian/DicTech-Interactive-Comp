@@ -1,63 +1,100 @@
-import PageLayout from "@/components/layouts/pagelayout";
+'use client';
 
-const RemotePolicyPage = () => {
+import React from 'react';
+import PageLayout from '../layouts/pagelayout';
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '@/components/ui/tabs';
+import Image from 'next/image';
+import VisualHighlightSection from './visualremotework';
+
+const policySections = [
+  {
+    key: 'purpose',
+    title: 'Tujuan Kebijakan',
+    content: `DicTech Interactive berkomitmen menyediakan lingkungan kerja yang fleksibel dan produktif bagi semua karyawan. Kebijakan kerja jarak jauh ini dirancang untuk mendukung efisiensi, kolaborasi, dan keseimbangan antara kehidupan pribadi dan pekerjaan.
+
+Kami percaya bahwa fleksibilitas dapat meningkatkan kreativitas dan kepuasan kerja, sekaligus menjaga standar profesionalisme dan kualitas hasil kerja.`,
+  },
+  {
+    key: 'eligibility',
+    title: 'Kelayakan Kerja Jarak Jauh',
+    content: `Karyawan dengan peran yang memungkinkan pekerjaan virtual dapat mengajukan untuk bekerja dari jarak jauh. Penentuan kelayakan dilakukan berdasarkan evaluasi manajer langsung dan kebutuhan operasional tim.
+
+Karyawan diharapkan memiliki disiplin tinggi dan akses teknologi yang memadai untuk menjaga produktivitas.`,
+  },
+  {
+    key: 'work-hours',
+    title: 'Jam Kerja & Fleksibilitas',
+    content: `Jam kerja standar adalah pukul 09:00 sampai 17:00, Senin hingga Jumat, dengan fleksibilitas menyesuaikan zona waktu dan kebutuhan pribadi.
+
+Pengaturan jam kerja harus tetap memastikan penyelesaian tugas tepat waktu dan komunikasi efektif antar tim. Karyawan dianjurkan menggunakan kalender dan aplikasi manajemen waktu untuk koordinasi yang lancar.`,
+  },
+  {
+    key: 'communication',
+    title: 'Komunikasi & Kolaborasi',
+    content: `Semua karyawan jarak jauh wajib menggunakan platform komunikasi resmi seperti Slack, Microsoft Teams, atau Zoom untuk rapat dan diskusi rutin.
+
+Kolaborasi aktif dan transparan adalah kunci keberhasilan kerja jarak jauh. Karyawan didorong untuk berbagi update secara teratur dan proaktif menyelesaikan masalah.`,
+  },
+];
+
+const images = [
+  { src: '/images/services.jpg', alt: 'Photo 1' },
+  { src: '/images/policy.png', alt: 'Photo 2' },
+  { src: '/images/values.png', alt: 'Photo 3' },
+  { src: '/images/about.png', alt: 'Photo 4' },
+  { src: '/images/history.png', alt: 'Photo 5' },
+  { src: '/images/projects.png', alt: 'Photo 6' },
+];
+
+export default function RemoteWorkPolicy() {
   return (
-    <PageLayout
-      title="Remote Work Policy at DicTech Interactive"
-      subtitle="Creating a flexible, productive, and responsible work culture — wherever you are in the world."
-    >
-      <div className="space-y-6">
-        <p>
-          At DicTech Interactive, we believe that great work isn’t tied to a physical location. Our remote work policy reflects our commitment to flexibility, accountability, and performance.
-        </p>
+    <main>
+      <PageLayout
+        title="Kebijakan Kerja Jarak Jauh"
+        subtitle="Panduan DicTech Interactive untuk Mendukung Produktivitas dan Keseimbangan Kerja"
+      >
+        <div className="max-w-4xl mx-auto px-6 py-12">
+                    <h3 className="text-m text-black-300 text-center">Remote Work Policy</h3>
+          <p className="text-3xl font-semibold text-black-600 tracking-wide text-center">
+            Standards That Drive Innovation
+          </p>
+          <hr className="my-6 border-t-6 w-30 mx-auto border-teal-600" />
 
-        <h2 className="text-lg font-semibold">1. Work Hours</h2>
-        <p>
-          We offer flexible working hours. Team members are expected to be available between 10:00 AM to 4:00 PM (GMT+7) for collaboration, while the rest of the time can be managed individually.
-        </p>
+          <Tabs defaultValue="purpose" className="space-y-8">
+  <TabsList className="grid grid-cols-2 md:grid-cols-4 border-b border-gray-200 ">
+    {policySections.map((section) => (
+   <TabsTrigger
+  key={section.key}
+  value={section.key}
+  className="text-gray-700 data-[state=active]:text-teal-600 font-semibold py-3 relative text-sm after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full data-[state=active]:after:w-full after:transition-all after:duration-300 after:ease-in-out"
+>
+  {section.title}
+</TabsTrigger>
 
-        <h2 className="text-lg font-semibold">2. Communication Tools</h2>
-        <p>
-          We use the following tools for communication and collaboration:
-        </p>
-        <ul className="list-disc list-inside pl-4">
-          <li>Slack — for daily communication</li>
-          <li>Notion — for documentation and internal wikis</li>
-          <li>Linear or Trello — for project tracking</li>
-          <li>Zoom/Google Meet — for weekly stand-ups and meetings</li>
-        </ul>
+    ))}
+  </TabsList>
 
-        <h2 className="text-lg font-semibold">3. Deliverables Over Presence</h2>
-        <p>
-          Our culture values output over hours logged. Team members are assessed based on results, not activity monitoring.
+  <div className="min-h-[220px]">
+    {policySections.map((section) => (
+      <TabsContent key={section.key} value={section.key}>
+        <p className="text-gray-800 text-lg whitespace-pre-line leading-relaxed">
+          {section.content}
         </p>
+      </TabsContent>
+    ))}
+  </div>
+</Tabs>
 
-        <h2 className="text-lg font-semibold">4. Workspace Expectations</h2>
-        <p>
-          While working remotely, employees are responsible for maintaining a professional and distraction-free workspace.
-        </p>
 
-        <h2 className="text-lg font-semibold">5. Availability</h2>
-        <p>
-          All team members must keep their calendars updated and respond to messages during working hours within a reasonable timeframe (preferably within 1–2 hours).
-        </p>
-
-        <h2 className="text-lg font-semibold">6. Security & Privacy</h2>
-        <p>
-          Devices used for work must have proper antivirus and secure internet connections. Access to company assets must follow our internal security protocols.
-        </p>
-
-        <h2 className="text-lg font-semibold">7. Performance Reviews</h2>
-        <p>
-          Regular check-ins and reviews will ensure that goals are aligned, and performance remains transparent even when working remotely.
-        </p>
-
-        <p>
-          We trust our team to work responsibly and independently. This policy empowers every team member to do their best work from wherever they are.
-        </p>
-      </div>
-    </PageLayout>
+          {/* Gallery 6 images in grid */}
+       <VisualHighlightSection/>
+        </div>
+      </PageLayout>
+    </main>
   );
-};
-
-export default RemotePolicyPage;
+}

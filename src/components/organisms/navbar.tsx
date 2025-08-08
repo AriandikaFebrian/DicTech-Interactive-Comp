@@ -42,10 +42,10 @@ export const Navbar: React.FC = () => {
           name: t("Policy & Terms"),
           href: "/policy",
           dropdown: [
+               { name: t("Terms of Service"), href: "/policy/terms-of-service" },
             { name: t("work_guidelines"), href: "/policy/work-guidelines" },
             { name: t("code_of_conduct"), href: "/policy/code-of-conduct" },
-            { name: t("remote_policy"), href: "/policy/remote" },
-            { name: t("contribution_rules"), href: "/policy/contribution" },
+            { name: t("Remote Work Policy"), href: "/policy/remote" },
           ],
         },
       ],

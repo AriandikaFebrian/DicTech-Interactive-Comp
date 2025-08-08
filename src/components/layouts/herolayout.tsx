@@ -19,10 +19,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
   };
 
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat py-20"
-      style={{ backgroundImage: 'url("/images/bgherosection.png")' }}
-    >
+<section
+  className="relative bg-cover bg-center bg-no-repeat py-20 min-h-[400px]"
+  style={{ backgroundImage: 'url("/images/bgherosection.png")' }}
+>
+
       {/* Overlay Tile Color Layer */}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 opacity-80 mix-blend-overlay z-0" />
 

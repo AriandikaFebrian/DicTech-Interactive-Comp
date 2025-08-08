@@ -1,116 +1,85 @@
-// src/pages/Policy.tsx
-'use client';
+import React from "react";
+import Link from "next/link";
+import PageLayout from "../layouts/pagelayout";
 
-import React from 'react';
-import PageLayout from '../layouts/pagelayout';
-import {
-  ShieldCheck,
-  FileText,
-  Cookie,
-  Mail,
-  Phone,
-  MapPin,
-} from 'lucide-react';
-
-const Policy = () => {
+const ServicesPage = () => {
   return (
-    <main>
       <PageLayout
         title="Policy & Terms"
         subtitle="Understand how DicTech Interactive handles your data and usage."
       >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-gray-700 dark:text-gray-900 space-y-12">
+        <div className="lg:col-span-1 sm:col-span-2 p-6 flex flex-col justify-center shadow border border-teal-400/50">
+  <h2 className="text-4xl font-bold text-teal-700 flex items-center gap-3">
+    <svg className="w-8 h-8 text-teal-700" fill="currentColor" viewBox="0 0 24 24">
+      {/* contoh icon dokumen */}
+      <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zM6 20V4h7v5h5v11H6z" />
+    </svg>
+    Our Policy
+  </h2>
+  <hr className="my-6 border-t-6 w-30 border-teal-600" />
+  <p className="mt-4 text-gray-700 dark:text-black-300">
+    At DicTech Interactive, we are committed to protecting your privacy and maintaining transparency about how we handle your data. Below you will find our key policies that govern the use of our services and workplace conduct.
+  </p>
+</div>
 
-            {/* Introduction */}
-            <section>
-              <h2 className="flex items-center text-2xl font-semibold text-gray-800 mb-4">
-                <FileText className="w-6 h-6 text-teal-500 mr-3" />
-                Introduction
-              </h2>
-              <p className="leading-relaxed text-lg">
-                Welcome to DicTech Interactive! By using our platform, you agree to the following terms and conditions. Please read through our Privacy Policy and Terms of Service carefully to understand how we handle your data and your rights.
-              </p>
-            </section>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        
+        {/* Title & Description */}
+    
 
-            {/* Privacy Policy */}
-            <section>
-              <h2 className="flex items-center text-2xl font-semibold text-gray-800 mb-4">
-                <ShieldCheck className="w-6 h-6 text-teal-500 mr-3" />
-                Privacy Policy
-              </h2>
-              <p className="leading-relaxed text-lg">
-                We are committed to protecting your privacy. Our privacy policy outlines how we collect, use, and protect your personal information. By using our services, you consent to our data practices as outlined below.
-              </p>
-              <ul className="list-disc pl-6 mt-4 space-y-2 text-base">
-                <li><strong>Data Collection:</strong> We collect personal information when you use our website, including your name, email address, and usage data.</li>
-                <li><strong>Data Use:</strong> Your data is used to improve your user experience, provide services, and send important updates.</li>
-                <li><strong>Data Security:</strong> We use industry-standard encryption to ensure your personal information is secure.</li>
-              </ul>
-            </section>
-
-            {/* Terms of Service */}
-            <section>
-              <h2 className="flex items-center text-2xl font-semibold text-gray-800 mb-4">
-                <FileText className="w-6 h-6 text-teal-500 mr-3" />
-                Terms of Service
-              </h2>
-              <p className="leading-relaxed text-lg">
-                By using DicTech Interactive, you agree to our Terms of Service. These terms outline the rules and regulations for using our platform and services.
-              </p>
-              <ul className="list-disc pl-6 mt-4 space-y-2 text-base">
-                <li><strong>Account Registration:</strong> You must provide accurate information when creating an account and keep your credentials confidential.</li>
-                <li><strong>Usage Restrictions:</strong> You agree not to misuse our services, including but not limited to illegal activities or harmful behavior.</li>
-                <li><strong>Limitation of Liability:</strong> We are not responsible for damages or losses caused by using our platform.</li>
-              </ul>
-            </section>
-
-            {/* Cookies Policy (Optional) */}
-            <section>
-              <h2 className="flex items-center text-2xl font-semibold text-gray-800 mb-4">
-                <Cookie className="w-6 h-6 text-teal-500 mr-3" />
-                Cookies Policy
-              </h2>
-              <p className="leading-relaxed text-lg">
-                Our website uses cookies to enhance your user experience. By continuing to use our platform, you consent to the use of cookies.
-              </p>
-              <ul className="list-disc pl-6 mt-4 space-y-2 text-base">
-                <li><strong>What Are Cookies:</strong> Cookies are small text files stored on your device to help us remember your preferences and improve the website&apis;s performance.</li>
-                <li><strong>How We Use Cookies:</strong> We use cookies to analyze website traffic, improve our services, and personalize your experience.</li>
-                <li><strong>Managing Cookies:</strong> You can manage or disable cookies through your browser settings at any time.</li>
-              </ul>
-            </section>
-
-            {/* Contact Information */}
-            <section>
-              <h2 className="flex items-center text-2xl font-semibold text-gray-800 mb-4">
-                <Mail className="w-6 h-6 text-teal-500 mr-3" />
-                Contact Us
-              </h2>
-              <p className="leading-relaxed text-lg mb-4">
-                If you have any questions or concerns about our policies, please feel free to reach out:
-              </p>
-              <ul className="space-y-3 text-base pl-6">
-                <li className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-teal-500" />
-                  <a href="mailto:info@DicTech.com" className="text-teal-600 hover:underline">info@DicTech.com</a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-teal-500" />
-                  <a href="tel:+1234567890" className="text-teal-600 hover:underline">+1 (234) 567-890</a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-teal-500" />
-                  123 Tech Lane, Silicon Valley, CA 95000
-                </li>
-              </ul>
-            </section>
-
+        {/* Service 1 */}
+        <div className="p-6 bg-white/10 text-black shadow min-h-[250px] border border-white/30 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Terms of Service</h3>
+            <p>Rules and guidelines for using our services.</p>
           </div>
+       <Link
+  href="/custom-web-development"
+  className="relative text-sm text-black after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+  Read More →
+</Link>
+
         </div>
-      </PageLayout>
-    </main>
+
+        {/* Service 2 */}
+        <div className="p-6 bg-teal-600 text-white shadow min-h-[250px] border border-white/30 hover:bg-black/90 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Work Guidelines</h3>
+      <p>Standards that define how we work together.</p>
+          </div>
+          <Link href="/web-app-dashboard-development"  className="relative text-sm text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
+
+        {/* Service 3 */}
+        <div className="p-6 bg-white/10 text-black shadow min-h-[250px] border border-white/30 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Code Of Conduct</h3>
+<p>Our commitment to ethical and professional behavior.</p>
+          </div>
+            <Link href="/mobile-app"  className="relative text-sm text-black after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
+
+        {/* Service 4 */}
+        <div className="p-6 bg-teal-600 text-white shadow min-h-[250px] border border-white/30 hover:bg-black/90 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Remote Work Policy</h3>
+ <p>Guidelines for working remotely and flexible arrangements.</p>
+          </div>
+          <Link href="/ui-ux-design"  className="relative text-sm text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
+      </div>
+    </PageLayout>
   );
 };
 
-export default Policy;
+export default ServicesPage;
