@@ -43,7 +43,7 @@ const AboutUs = () => {
           {/* Right Image Content */}
           <div>
             <Image 
-  src="/Images/Company.png" 
+  src="/images/company.png" 
   alt="Company Overview" 
   className="w-full h-auto rounded-lg shadow-lg"
   width={600} // Tentukan lebar gambar

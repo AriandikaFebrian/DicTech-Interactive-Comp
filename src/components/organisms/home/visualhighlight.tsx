@@ -7,19 +7,19 @@ import { useState } from "react";
 
 const visualTiles = [
   {
-    image: "/images/Highlight/Collaboration.png",
+    image: "/images/highlight/collaboration.png",
     alt: "Collaboration",
     title: "Collaboration",
     link: "/about/collaboration",
   },
   {
-    image: "/images/Highlight/Innovation.png",
+    image: "/images/highlight/innovation.png",
     alt: "Innovation",
     title: "Innovation",
     link: "/about/innovation",
   },
   {
-    image: "/images/Highlight/Trust.png",
+    image: "/images/highlight/trust.png",
     alt: "Trust and Partnership",
     title: "Trust & Partnership",
     link: "/about/trust",

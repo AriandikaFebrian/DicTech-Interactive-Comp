@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
         <Link href="/" className="flex items-center">
           <div className="w-10 h-10 relative scale-180">
             <Image
-              src="/ChatGPT_Image_Aug_7__2025__03_51_37_AM-removebg-preview.png"
+              src="/images/logo/lohonobg.png"
               alt="Logo"
               fill
               className="object-contain"

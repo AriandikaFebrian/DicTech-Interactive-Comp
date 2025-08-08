@@ -4,8 +4,7 @@ import Image from "next/image";
 export default function VisionMissionAccordion() {
   return (
 <section
-  className="py-24 bg-cover bg-center"
-  style={{ backgroundImage: "url('/bg.png')" }}
+  className="py-24 bg-cover bg-center bg-white"
 >
         <div className="max-w-6xl mx-auto px-6 text-center text-gray-800 dark:text-gray-900  bg-wti">
         {/* Judul */}
@@ -21,7 +20,7 @@ export default function VisionMissionAccordion() {
           {/* Gambar */}
           <div className="lg:w-1/2">
             <Image
-              src="/Images/TES.jpg"
+              src="/images/services.jpg"
               alt="Vision and Mission"
               className="w-full h-auto rounded-lg shadow-lg object-cover"
               width={600}

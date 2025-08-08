@@ -69,7 +69,7 @@ const ProfilPage = () => {
         <div className="space-y-4">
           <div className="flex justify-center">
             <Image
-              src="/images/TES.jpg"
+              src="/images/services.jpg"
               alt="DicTech Interactive"
               width={600}
               height={400}

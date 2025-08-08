@@ -86,7 +86,7 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Name */}
           <div className="flex items-center space-x-2">
-            <Image src="/logo.png" alt="DicTech Logo" width={40} height={40} />
+            <Image src="/images/logo/logo.png" alt="DicTech Logo" width={40} height={40} />
             <span className="text-xl font-semibold text-white">DicTech Interactive™</span>
           </div>
 

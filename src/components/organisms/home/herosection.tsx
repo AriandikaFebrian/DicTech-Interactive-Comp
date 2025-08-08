@@ -5,11 +5,11 @@ import { useTranslation } from "react-i18next";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const slides = [
-  { image: "/Images/TES.jpg", anchor: "#services" },
-  { image: "/Images/TES3.png", anchor: "#about" },
-  { image: "/images/TES2.png", anchor: "#projects" },
-  { image: "/Images/TES4.png", anchor: "#about" },
-  { image: "/images/TES5.png", anchor: "#projects" },
+  { image: "/images/services.jpg", anchor: "#services" },
+  { image: "/images/about.png", anchor: "#about" },
+  { image: "/images/projects.png", anchor: "#projects" },
+  { image: "/images/values.png", anchor: "#about" },
+  { image: "/images/policy.png", anchor: "#projects" },
 ];
 
 const HeroSection = () => {
