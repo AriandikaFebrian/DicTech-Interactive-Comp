@@ -5,6 +5,7 @@ import AboutUs from "../../organisms/home/aboutus";
 import ServicesPage from "../../organisms/home/services";
 import FeaturedProjectsSection from "../../organisms/home/whychoseus";
 import ProjectPage from "../../organisms/home/project"; // Importing the Project component
+import CareerAndInternship from "@/components/organisms/home/carrerandinternship";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
      <AboutUs />
       < ServicesPage />
       < ProjectPage />
+      < CareerAndInternship/>
       < FeaturedProjectsSection />
       
       {/* Additional sections can be added here */}

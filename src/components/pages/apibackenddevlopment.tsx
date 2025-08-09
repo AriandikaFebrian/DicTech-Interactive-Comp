@@ -7,40 +7,40 @@ import OtherServices from "./otherservices";
 import { services } from "./servicesData";
 
 const images = [
-  "/images/uiux1.jpg",
-  "/images/uiux2.jpg",
-  "/images/uiux3.jpg",
-  "/images/uiux4.jpg",
-  "/images/uiux5.jpg",
+  "/images/api1.jpg",
+  "/images/api2.jpg",
+  "/images/api3.jpg",
+  "/images/api4.jpg",
+  "/images/api5.jpg",
 ];
 
-export default function UIUXDesign() {
-  const currentId = "ui-ux-design";
+export default function APIBackendDevelopment() {
+  const currentId = "api-backend-development";
 
   const items = [
-    "Riset pengguna dan analisis kebutuhan",
-    "Wireframing dan prototyping interaktif",
-    "Desain visual yang menarik dan konsisten",
-    "Pengujian kegunaan (usability testing)",
-    "Desain responsif untuk semua perangkat",
-    "Kolaborasi erat dengan tim pengembang",
-    "Iterasi desain berdasarkan feedback pengguna",
-    "Pembuatan style guide dan design system",
-    "Optimalisasi pengalaman pengguna (UX)",
+    "Desain API yang scalable dan dokumentasi lengkap",
+    "Pengembangan backend menggunakan teknologi modern",
+    "Integrasi database relasional dan NoSQL",
+    "Implementasi autentikasi dan otorisasi yang aman",
+    "Optimasi performa dan caching",
+    "Monitoring dan logging sistem",
+    "Penerapan microservices dan arsitektur modular",
+    "Automasi deployment dan CI/CD",
+    "Pemeliharaan dan pembaruan berkala",
   ];
 
   const steps = [
-    "Riset & Analisis",
-    "Wireframing & Prototipe",
-    "Desain Visual",
-    "Pengujian & Validasi",
-    "Iterasi & Finalisasi",
+    "Perencanaan Arsitektur",
+    "Desain API & Database",
+    "Pengembangan Backend",
+    "Pengujian & QA",
+    "Deployment & Monitoring",
   ];
 
   return (
     <PageLayout
-      title="UI/UX Design"
-      subtitle="Creating engaging and intuitive user interfaces to deliver exceptional user experiences."
+      title="API & Backend Development"
+      subtitle="Robust and secure backend solutions tailored for high performance and scalability."
     >
       <section className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -49,24 +49,24 @@ export default function UIUXDesign() {
             {/* Deskripsi */}
             <div>
               <h3 className="text-2xl text-black uppercase tracking-wide">
-                What is UI/UX Design?
+                What is API & Backend Development?
               </h3>
               <hr className="my-4 border-t-4 w-20 border-teal-600" />
               <p className="text-gray-700 leading-relaxed mb-3">
-                UI/UX Design is the process of crafting user interfaces and experiences
-                that are not only visually appealing but also intuitive and easy to use.
-                It ensures users can navigate products effortlessly and enjoy their interaction.
+                API & Backend Development involves building the server-side logic,
+                databases, and APIs that power your applications. We focus on creating
+                scalable, secure, and efficient backends to support your business needs.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Our design approach combines research, creativity, and testing to
-                deliver interfaces that meet user needs and business goals.
+                Our solutions ensure smooth data flow, reliable integrations, and robust
+                infrastructure, enabling your frontend and services to perform seamlessly.
               </p>
             </div>
 
             {/* Workflow */}
             <div className="max-w-5xl mx-auto my-16 px-4">
               <h2 className="text-3xl font-extrabold text-center text-teal-600 mb-12">
-                Our Design Process
+                Our Development Process
               </h2>
               <div className="flex justify-between items-center">
                 {steps.map((step, i, arr) => (
@@ -95,7 +95,7 @@ export default function UIUXDesign() {
               >
                 <Image
                   src={src}
-                  alt={`UI/UX Design Image ${i + 1}`}
+                  alt={`API & Backend Development Image ${i + 1}`}
                   width={300}
                   height={200}
                   className="object-cover w-full h-full"

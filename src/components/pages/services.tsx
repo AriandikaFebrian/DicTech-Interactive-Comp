@@ -1,49 +1,89 @@
-import PageLayout from "@/components/layouts/pagelayout";
+import React from "react";
+import Link from "next/link";
+import PageLayout from "../layouts/pagelayout";
 
 const ServicesPage = () => {
   return (
-    <PageLayout
+        <PageLayout
       title="Our Services at DicTech Interactive"
       subtitle="Innovative tech solutions to accelerate your business and creativity."
     >
-      <div className="space-y-6">
-        <p>
-          At DicTech Interactive, we offer a wide range of services designed to help businesses leverage technology for growth, efficiency, and innovation. From custom software development to creative design, our services are tailored to meet the unique needs of each client.
-        </p>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Title & Description */}
+        <div className="lg:col-span-1 sm:col-span-2 p-6 flex flex-col justify-center shadow border border-teal-400/50">
+          <h2 className="text-4xl font-bold text-teal-700">Our Services</h2>
+          <hr className="my-6 border-t-6 w-30 border-teal-600" />
+          <p className="mt-4 text-gray-700 dark:text-black-300">
+            We offer a range of services designed to help businesses grow and thrive in the digital world.
+          </p>
+          <p className="mt-2 text-gray-600 dark:text-black-400">
+            From websites to mobile apps, SEO to cloud solutions, we’ve got you covered.
+          </p>
+        </div>
 
-        <h2 className="text-lg font-semibold">1. Custom Software Development</h2>
-        <p>
-          Our team specializes in building scalable, high-performance applications tailored to your business needs. Whether it&apos;s a web application, mobile app, or enterprise-level solution, we provide end-to-end development from concept to deployment.
-        </p>
+        {/* Service 1 */}
+        <div className="p-6 bg-white/10 text-black shadow min-h-[250px] border border-white/30 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Custom Web Development</h3>
+            <p>Responsive, scalable websites for great user experiences.</p>
+          </div>
+       <Link
+  href="/custom-web-development"
+  className="relative text-sm text-black after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+  Read More →
+</Link>
 
-        <h2 className="text-lg font-semibold">2. UI/UX Design</h2>
-        <p>
-          We create user-centered designs that deliver seamless and intuitive experiences. Our design process focuses on user research, prototyping, and usability testing to ensure your products not only look great but are also easy to use.
-        </p>
+        </div>
 
-        <h2 className="text-lg font-semibold">3. Cloud Solutions</h2>
-        <p>
-          Leverage the power of the cloud with our infrastructure and cloud application solutions. We provide scalable cloud services to ensure your business stays agile, secure, and ready for growth.
-        </p>
+        {/* Service 2 */}
+        <div className="p-6 bg-teal-600 text-white shadow min-h-[250px] border border-white/30 hover:bg-black/90 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Web App & Dashboard Development</h3>
+            <p>Cross-platform apps for iOS and Android users.</p>
+          </div>
+          <Link href="/web-app-dashboard-development"  className="relative text-sm text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
 
-        <h2 className="text-lg font-semibold">4. IT Consulting</h2>
-        <p>
-          Our consultants help guide your business through the challenges of digital transformation. We provide strategic advice on IT infrastructure, system integrations, and tech stack decisions to ensure your tech investments align with your business goals.
-        </p>
+        {/* Service 3 */}
+        <div className="p-6 bg-white/10 text-black shadow min-h-[250px] border border-white/30 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Mobile App Development (React Native / Flutter)</h3>
+            <p>Visual design that strengthens your brand identity.</p>
+          </div>
+            <Link href="/mobile-app"  className="relative text-sm text-black after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
 
-        <h2 className="text-lg font-semibold">5. Maintenance and Support</h2>
-        <p>
-          We offer ongoing maintenance and support services to ensure your applications are always running smoothly. From bug fixes to feature updates, we’re here to keep your software up-to-date and fully optimized.
-        </p>
+        {/* Service 4 */}
+        <div className="p-6 bg-teal-600 text-white shadow min-h-[250px] border border-white/30 hover:bg-black/90 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">UI/UX Design</h3>
+            <p>Boost visibility and reach the top of search results.</p>
+          </div>
+          <Link href="/ui-ux-design"  className="relative text-sm text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
+          </Link>
+        </div>
 
-        <h2 className="text-lg font-semibold">6. Training & Workshops</h2>
-        <p>
-          Empower your team with the knowledge and skills they need to succeed. We offer training sessions and workshops on a variety of tech topics, from coding best practices to using design tools effectively.
-        </p>
+        {/* Service 5 */}
+        <div className="p-6 bg-teal-600 text-white shadow min-h-[250px] border border-white/30 hover:bg-black/90 transition-colors duration-300 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">API & Backend Development</h3>
+            <p>Scale your infrastructure with secure cloud tech.</p>
+          </div>
+          <Link href="/seo"   className="relative text-sm text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out w-fit"
+>
+            Read More →
 
-        <p>
-          We’re committed to providing high-quality services that not only meet but exceed expectations. Let’s work together to bring your vision to life.
-        </p>
+          </Link>
+        </div>
       </div>
     </PageLayout>
   );

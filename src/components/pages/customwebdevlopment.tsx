@@ -1,107 +1,130 @@
-// src/pages/CodeOfConduct.tsx
-import React from 'react';
-import PageLayout from '../layouts/pagelayout';
+'use client'
 
-const CustomWebDevelopment = () => {
+import React from "react";
+import PageLayout from "../layouts/pagelayout";
+import Image from "next/image";
+import { useState } from "react";
+import OtherServices from "./otherservices";
+import {services} from "./servicesData";
+
+const images = [
+  "/images/custom1.jpg",
+  "/images/custom2.jpg",
+  "/images/custom3.jpg",
+  "/images/custom4.jpg",
+  "/images/custom5.jpg",
+];
+
+export default function CustomWebDevelopment() {
+    const currentId = "custom-web-development";
+    
+const items = [
+  "Desain responsif dan mobile-friendly",
+  "Kode bersih, terstruktur, dan scalable",
+  "Integrasi API dan sistem pihak ketiga",
+  "Optimasi performa dan SEO",
+  "Keamanan dan proteksi data",
+  "User experience (UX) yang intuitif",
+  "Pengembangan fitur kustom sesuai kebutuhan",
+  "Dukungan teknis dan pemeliharaan berkelanjutan",
+  "Deployment dan monitoring 24/7",
+];
+
+  
+const steps = [
+  "Konsultasi",
+  "Desain UI/UX",
+  "Pengembangan",
+  "Deployment",
+  "Dukungan",
+];
+
   return (
-    <main>
-      {/* Hero Section */}
-           <PageLayout
-      title="The Story Behind DicTech Interactive"
-      subtitle="Discover how DicTech Interactive was born — from humble beginnings to a forward-thinking digital powerhouse led by Ari Andika Febrian."
+    <PageLayout
+      title="Custom Web Development"
+      subtitle="Tailored websites built to fit your unique business needs and deliver outstanding user experiences."
     >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-lg text-gray-700 dark:text-gray-900 space-y-8">
-            {/* Introduction */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Text Content */}
+          <div className="md:col-span-2 space-y-10">
+            {/* Deskripsi */}
             <div>
-              <p className="font-semibold text-2xl text-gray-800">Introduction</p>
-              <p>
-                We strive to create a positive environment where everyone can thrive. This Code of Conduct applies to all individuals within our organization, including employees, collaborators, and users on our platform.
-              </p>
+         <h3 className="text-2xl text-black uppercase  tracking-wide">What is Custom Web Development?</h3>
+<hr className="my-4 border-t-4 w-20 border-teal-600" />
+<p className="text-gray-700 leading-relaxed mb-3">
+  Custom Web Development is the process of creating websites specifically designed to meet your unique business goals and requirements. Unlike generic templates or website builders, this service offers flexible, scalable, and personalized solutions.
+</p>
+<p className="text-gray-700 leading-relaxed">
+  Choosing custom development means your website will have the exact features you need, optimized performance, and a design that reflects your brand identity, delivering the best user experience and supporting your business growth.
+</p>
+
             </div>
 
-            {/* Respectful Communication */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Respectful Communication</p>
-              <p>
-                We value open, honest, and respectful communication. We expect everyone to:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Engage in discussions with kindness and empathy.</li>
-                <li>Provide constructive feedback and respect differing viewpoints.</li>
-                <li>Use clear, professional language in all communications, both online and offline.</li>
-              </ul>
-            </div>
+            {/* Fitur */}
 
-            {/* Professional Behavior */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Professional Behavior</p>
-              <p>
-                Everyone is expected to act with professionalism and integrity at all times. This includes:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Being reliable and accountable in all tasks and commitments.</li>
-                <li>Adhering to deadlines and maintaining high standards of work.</li>
-                <li>Refraining from any form of harassment or discrimination in the workplace or online platforms.</li>
-              </ul>
-            </div>
 
-            {/* Inclusivity */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Inclusivity</p>
-              <p>
-                We are committed to building an inclusive and diverse environment. We expect everyone to:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Respect all individuals regardless of their background, gender, race, or beliefs.</li>
-                <li>Encourage diversity in ideas, perspectives, and approaches.</li>
-                <li>Support equal opportunities for all community members.</li>
-              </ul>
-            </div>
+            {/* Workflow */}
+      <div className="max-w-5xl mx-auto my-16 px-4">
+  <h2 className="text-3xl font-extrabold text-center text-teal-600 mb-12">
+    Proses Kerja Kami
+  </h2>
+  <div className="flex justify-between items-center">
+    {[
+      "Konsultasi",
+      "Desain UI/UX",
+      "Pengembangan",
+      "Deployment",
+      "Dukungan",
+    ].map((step, i, arr) => (
+      <div key={i} className="flex-1 relative text-center">
+        <div className="mx-auto w-10 h-10 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold">
+          {i + 1}
+        </div>
+        <p className="mt-2 font-semibold">{step}</p>
+        {i < arr.length - 1 && (
+          <div className="absolute top-5 right-0 w-full h-1 bg-teal-300 -translate-x-1/2 z-[-1]" />
+        )}
+      </div>
+    ))}
+  </div>
+</div>
 
-            {/* Collaboration */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Collaboration</p>
-              <p>
-                Successful collaboration relies on mutual trust and respect. We encourage:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Active participation in team discussions and meetings.</li>
-                <li>Helping and supporting fellow team members when needed.</li>
-                <li>Sharing knowledge and resources to drive collective success.</li>
-              </ul>
-            </div>
 
-            {/* Consequences for Violations */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Consequences for Violations</p>
-              <p>
-                We take violations of this Code of Conduct seriously. Violations may result in:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Formal warnings or discussions with team leads or management.</li>
-                <li>Temporary suspension from team activities or access to the platform.</li>
-                <li>Permanent removal from the community or platform in severe cases.</li>
-              </ul>
-              <p className="mt-4">
-                If you witness a violation or have concerns, please reach out to the appropriate channels for reporting and resolution.
-              </p>
-            </div>
+          </div>
 
-            {/* Contact Information */}
-            <div>
-              <p className="font-semibold text-2xl text-gray-800">Contact Us</p>
-              <p>If you have any questions regarding the Code of Conduct or need to report an issue, please contact us:</p>
-              <ul className="list-none pl-6 mt-4">
-                <li>Email: <a href="mailto:info@DicTech.com" className="text-teal-500">info@DicTech.com</a></li>
-                <li>Phone: <a href="tel:+1234567890" className="text-teal-500">+1 (234) 567-890</a></li>
-              </ul>
-            </div>
+          {/* Images Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            {images.map((src, i) => (
+              <div key={i} className={`overflow-hidden rounded-lg shadow-lg ${i % 3 === 0 ? 'row-span-2' : ''}`}>
+                <Image
+                  src={src}
+                  alt={`Custom Web Development Image ${i + 1}`}
+                  width={300}
+                  height={200}
+                  className="object-cover w-full h-full"
+                  priority={i === 0}
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </PageLayout>
-    </main>
-  );
-};
+                        <section className="bg-gray-50 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.02),rgba(0,0,0,0.02) 1px,transparent 1px,transparent 20px)] py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-2xl text-black uppercase  tracking-wide">
+                Fitur Unggulan
+        </h2>
+<hr className="my-4 border-t-4 w-20 border-teal-600" />
 
-export default CustomWebDevelopment;
+        <ul className="grid grid-cols-1 sm:grid-cols-3 gap-y-4 gap-x-8 text-gray-700 list-disc list-inside">
+          {items.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+     <OtherServices currentId={currentId} services={services} />
+      </section>
+    </PageLayout>
+  );
+}

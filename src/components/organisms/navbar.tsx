@@ -28,8 +28,6 @@ export const Navbar: React.FC = () => {
     i18n.changeLanguage(newLang.toLowerCase());
   };
 
-  
-
   const navItems = [
     {
       name: t("profil"),
@@ -42,7 +40,7 @@ export const Navbar: React.FC = () => {
           name: t("Policy & Terms"),
           href: "/policy",
           dropdown: [
-               { name: t("Terms of Service"), href: "/policy/terms-of-service" },
+            { name: t("Terms of Service"), href: "/policy/terms-of-service" },
             { name: t("work_guidelines"), href: "/policy/work-guidelines" },
             { name: t("code_of_conduct"), href: "/policy/code-of-conduct" },
             { name: t("Remote Work Policy"), href: "/policy/remote" },
@@ -69,7 +67,7 @@ export const Navbar: React.FC = () => {
         },
         { name: t("mobile_app_development"), href: "/mobile-app" },
         { name: t("ui_&_ux_design"), href: "/ui-ux-design" },
-        { name: t("seo_optimization"), href: "/seo" },
+        { name: t("API & Backend Development"), href: "/api-backend-development" },
       ],
     },
     {
@@ -90,7 +88,7 @@ export const Navbar: React.FC = () => {
       ],
     },
     {
-      name: t("Support & FAQs"),
+      name: t("faqs"),
       href: "/support-and-faqs",
     },
     {
@@ -129,8 +127,8 @@ export const Navbar: React.FC = () => {
     ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
     ${
       !isAtTop || navHover
-        ? "bg-teal-600 border-white/10 dark:border-gray-700 shadow-md"
-        : "bg-transparent"
+        ? "bg-teal-600 border-white/10 dark:border-gray-700 shadow-md text-white"
+        : "bg-transparent text-gray-700"
     }
   `;
 
@@ -154,7 +152,13 @@ export const Navbar: React.FC = () => {
 
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <NavItem key={item.name} item={item} pathname={pathname} />
+            <NavItem
+              key={item.name}
+              item={item}
+              pathname={pathname}
+              isAtTop={isAtTop}
+              navHover={navHover}
+            />
           ))}
         </div>
 
@@ -179,19 +183,20 @@ type SubItem = DropdownItem & {
 };
 
 type NavItemType = DropdownItem & {
-  activePaths?: string[]; // Menambahkan activePaths sebagai optional array of strings
+  activePaths?: string[]; // Optional array untuk path aktif
   dropdown?: SubItem[]; // Item yang bisa memiliki dropdown
 };
-
-
-
 
 const NavItem = ({
   item,
   pathname,
+  isAtTop,
+  navHover,
 }: {
   item: NavItemType;
   pathname: string;
+  isAtTop: boolean;
+  navHover: boolean;
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -215,6 +220,17 @@ const NavItem = ({
     return pathname.startsWith(href);
   };
 
+  const active = isActive(item.href, item.activePaths);
+
+  // Tentukan kelas teks sesuai kondisi isAtTop dan navHover
+  const baseTextClass = !isAtTop || navHover
+    ? active
+      ? "text-white dark:text-teal-400"
+      : "text-gray-200 hover:text-white dark:text-white hover:dark:text-white"
+    : active
+    ? "text-gray-900 dark:text-gray-900"
+    : "text-gray-700 hover:text-gray-900 dark:text-gray-300 hover:dark:text-white";
+
   return (
     <div
       className="relative"
@@ -224,14 +240,11 @@ const NavItem = ({
       <Link
         href={item.href}
         className={`relative text-base font-medium pointer-events-auto
-          ${
-            isActive(item.href, item.activePaths)
-              ? "text-white dark:text-teal-400 after:w-full"
-              : "text-gray-200 hover:text-white dark:text-white hover:dark:text-white after:w-0 hover:after:w-full"
-          }
+          ${baseTextClass}
           transition-colors duration-300 flex items-center
           after:absolute after:-bottom-1 after:left-0 after:h-[2px]
-          after:bg-white dark:after:bg-white after:transition-all after:duration-300 after:ease-in-out
+          after:bg-current after:transition-all after:duration-300 after:ease-in-out
+          ${active ? "after:w-full" : "after:w-0 hover:after:w-full"}
         `}
       >
         {item.name}
@@ -245,44 +258,44 @@ const NavItem = ({
         `}
         >
           <div className="bg-white dark:bg-gray-800 shadow-xl rounded-md py-2 ring-1 ring-black/5 dark:ring-white/10">
-            {item.dropdown && item.dropdown.length > 0 && item.dropdown.map((sub: SubItem) => (
-  <div key={sub.name} className="relative group/sub">
-    <Link
-      href={sub.href}
-      className="block px-4 py-2 text-sm text-gray-950 dark:text-gray-900 hover:text-gray-600 dark:hover:text-gray-300 whitespace-nowrap items-center justify-between pr-4"
-    >
-      <span>{sub.name}</span>
-      {sub.dropdown && (
-        <span className="ml-2 text-gray-400 dark:text-gray-500">
-          ›
-        </span>
-      )}
-    </Link>
+            {item.dropdown &&
+              item.dropdown.length > 0 &&
+              item.dropdown.map((sub: SubItem) => (
+                <div key={sub.name} className="relative group/sub">
+                  <Link
+                    href={sub.href}
+                    className="block px-4 py-2 text-sm text-gray-950 dark:text-gray-900 hover:text-gray-600 dark:hover:text-gray-300 whitespace-nowrap items-center justify-between pr-4"
+                  >
+                    <span>{sub.name}</span>
+                    {sub.dropdown && (
+                      <span className="ml-2 text-gray-400 dark:text-gray-500">
+                        ›
+                      </span>
+                    )}
+                  </Link>
 
-    {sub.dropdown && (
-      <div className="absolute left-full top-0 mt-0 z-30 min-w-[12rem] invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 transition-all duration-200 ease-in pointer-events-auto">
-        <div className="bg-white dark:bg-gray-800 shadow-xl rounded-md py-2 ring-1 ring-black/5 dark:ring-white/10">
-          {sub.dropdown.map((deep: DropdownItem) => (
-            <Link
-              key={deep.name}
-              href={deep.href}
-              className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 whitespace-nowrap"
-            >
-              {deep.name}
-            </Link>
-          ))}
-        </div>
-      </div>
-    )}
-  </div>
-))}
-
+                  {sub.dropdown && (
+                    <div className="absolute left-full top-0 mt-0 z-30 min-w-[12rem] invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 transition-all duration-200 ease-in pointer-events-auto">
+                      <div className="bg-white dark:bg-gray-800 shadow-xl rounded-md py-2 ring-1 ring-black/5 dark:ring-white/10">
+                        {sub.dropdown.map((deep: DropdownItem) => (
+                          <Link
+                            key={deep.name}
+                            href={deep.href}
+                            className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 whitespace-nowrap"
+                          >
+                            {deep.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
           </div>
         </div>
       )}
     </div>
   );
 };
-
 
 export default Navbar;

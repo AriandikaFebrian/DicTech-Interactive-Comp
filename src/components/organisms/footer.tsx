@@ -70,7 +70,7 @@ const Footer = () => {
             <span className="text-teal-600 text-lg">▍</span> BLOG
           </h4>
           <div className="h-px bg-gray-600 mb-4"></div>
-          <ul className="space-y-2 text-sm font-semibold text-gray-200">
+          <ul className="space-y-2 text-sm text-gray-200">
             <li>
               <a href="/company" className="relative inline-block hover:text-white after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-current hover:after:w-full after:transition-all after:duration-300 after:ease-in-out">Company</a>
             </li>
