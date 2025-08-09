@@ -1,6 +1,6 @@
 // src/app/about-us/page.tsx
 import React from "react";// Importing the Services component
-import Blog from "../../components/pages/blog";
+import Blog from "../../components/pages/artikel";
 
 const BlogPage = () => {
   return (

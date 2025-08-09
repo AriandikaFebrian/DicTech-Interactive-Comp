@@ -1,131 +1,125 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
 import { FaEnvelope, FaPhoneAlt, FaComments } from "react-icons/fa";
 import PageLayout from "../layouts/pagelayout";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+
+// FAQ Item Component with Smooth Collapse Animation
+interface FAQItemProps {
+  question: string;
+  answer: string;
+}
+
+// FAQ Item Component with Smooth Collapse Animation
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="space-y-4">
+      <div
+        className="flex items-center justify-between cursor-pointer text-xl font-semibold text-gray-800 mb-2"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3>{question}</h3>
+        {isOpen ? <FaAngleUp /> : <FaAngleDown />}
+      </div>
+
+      {/* Smooth Transition for Answer */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
+      >
+        <p className="text-lg text-gray-700">{answer}</p>
+      </div>
+    </div>
+  );
+};
 
 const SupportAndFaqsPage = () => {
   return (
     <PageLayout
-      title="Contribution Rules at DicTech Interactive"
-      subtitle="Guidelines for effective collaboration, contribution, and ownership within our projects."
+      title="Support at DicTech Interactive"
+      subtitle="Contact information and resources for collaboration."
     >
       {/* Section Title */}
-      <h1 className="text-3xl font-semibold text-gray-900 mb-6">Support & FAQs</h1>
 
       {/* Support Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Support</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          If you need assistance, our support team is available to help you resolve any issues or answer questions.
-        </p>
+  <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Support</h2>
+  <p className="text-lg text-gray-700 mb-4">
+    Our support team is here to assist you with any inquiries or issues. Choose your preferred support method below:
+  </p>
+                    <hr className="my-6 border-t-6 w-50 border-teal-600" />
 
-        <div className="space-y-6">
-          <div className="flex items-center gap-4">
-            <FaPhoneAlt className="text-xl text-teal-500" />
-            <div>
-              <h4 className="font-semibold text-gray-800">Phone Support</h4>
-              <p className="text-gray-600">Call us at +62 21 5098 9399 for immediate assistance.</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <FaEnvelope className="text-xl text-teal-500" />
-            <div>
-              <h4 className="font-semibold text-gray-800">Email Support</h4>
-              <p className="text-gray-600">
-                Send an email to <a href="mailto:support@DicTech.com" className="text-teal-600">support@DicTech.com</a> for any inquiries.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <FaComments className="text-xl text-teal-500" />
-            <div>
-              <h4 className="font-semibold text-gray-800">Live Chat</h4>
-              <p className="text-gray-600">For real-time support, use our live chat feature available at the bottom-right corner of the page.</p>
-            </div>
-          </div>
+  <div className="flex justify-between items-center">
+    {/* Support Methods */}
+    <div className="space-y-6 w-2/3">
+      <div className="flex items-center gap-4">
+        <FaPhoneAlt className="text-xl text-teal-500" />
+        <div>
+          <h4 className="font-semibold text-gray-800">Phone Support</h4>
+          <p className="text-gray-600">Call us at +62 21 5098 9399 for immediate assistance.</p>
         </div>
-      </section>
+      </div>
 
-      {/* Documentation Link */}
-      <section>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Documentation</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          Visit our <a href="/docs" className="text-teal-600">documentation</a> for detailed guides and tutorials on using our product.
-        </p>
-      </section>
+      <div className="flex items-center gap-4">
+        <FaEnvelope className="text-xl text-teal-500" />
+        <div>
+          <h4 className="font-semibold text-gray-800">Email Support</h4>
+          <p className="text-gray-600">
+            Email us at <a href="mailto:support@DicTech.com" className="text-teal-600">support@DicTech.com</a> for detailed inquiries or assistance.
+          </p>
+        </div>
+      </div>
 
-      <section>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Report an Issue</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          Encountering any bugs or issues? Please report them through our <a href="/report" className="text-teal-600">issue reporting system</a>.
-        </p>
-      </section>
+      <div className="flex items-center gap-4">
+        <FaComments className="text-xl text-teal-500" />
+        <div>
+          <h4 className="font-semibold text-gray-800">Live Chat</h4>
+          <p className="text-gray-600">For real-time support, use our live chat feature available at the bottom-right corner of this page.</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Gambar besar di sisi kanan */}
+    <div className="w-1/3">
+      <img src="/images/policy.png" alt="Support Image" className="w-full h-auto object-cover rounded-lg" />
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section>
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions (FAQs)</h2>
+                          <hr className="my-6 border-t-6 w-50 border-teal-600" />
 
         <div className="space-y-8">
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">What makes your product different from others?</h3>
-            <p className="text-lg text-gray-700">
-              Our platform focuses on simplifying the user experience with powerful features, user-friendly design, and robust integrations that help startups scale quickly and efficiently.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">How do I get started?</h3>
-            <p className="text-lg text-gray-700">
-              To get started, simply sign up on our platform and follow the on-screen instructions to set up your first project or integration.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">Are there any costs associated with using the platform?</h3>
-            <p className="text-lg text-gray-700">
-              Our platform offers a free tier with basic features. For advanced features, we offer a subscription plan that can be found on our pricing page.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">How do I update or upgrade my account?</h3>
-            <p className="text-lg text-gray-700">
-              To update or upgrade your account, log into your dashboard and navigate to the &quot;Account Settings&quot; section, where you can change your plan and preferences.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">What is your refund policy?</h3>
-            <p className="text-lg text-gray-700">
-              We offer a 30-day money-back guarantee. If you&apos;re not satisfied with the service, you can request a full refund within the first 30 days of your subscription.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">How secure is my data?</h3>
-            <p className="text-lg text-gray-700">
-              We take data security seriously. All data is encrypted using the latest industry-standard encryption protocols, and we comply with relevant privacy laws.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">Can I integrate your platform with other tools?</h3>
-            <p className="text-lg text-gray-700">
-              Yes, our platform supports integrations with various third-party tools. You can find the full list of supported integrations in our documentation.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">How do I delete my account or data?</h3>
-            <p className="text-lg text-gray-700">
-              If you&apos;d like to delete your account or data, please reach out to our support team via <a href="mailto:support@DicTech.com" className="text-teal-600">support@DicTech.com</a>, and we&apos;ll assist you with the process.
-            </p>
-          </div>
+          <FAQItem
+            question="What services does DicTech Interactive offer?"
+            answer="We specialize in custom web and mobile development, providing solutions designed to meet your specific business needs and challenges. Our team works closely with you to create user-friendly, scalable products."
+          />
+          <FAQItem
+            question="How can I start working with DicTech Interactive?"
+            answer="To begin, simply contact us via email, phone, or through the contact form on our website. We'll arrange a consultation to discuss your project requirements and how we can collaborate effectively."
+          />
+          <FAQItem
+            question="Do you offer custom development services?"
+            answer="Yes, we specialize in custom development services tailored to your business objectives. Whether you're building a website or a mobile app, we ensure that the final product is aligned with your vision."
+          />
+          <FAQItem
+            question="What is the pricing model for your services?"
+            answer="Our pricing is flexible and based on the scope and complexity of your project. We offer competitive rates, and we can provide a detailed quote after discussing your needs in a consultation."
+          />
+          <FAQItem
+            question="How can I get in touch with the team for a project?"
+            answer="You can reach us via email at <a href='mailto:info@DicTech.com' className='text-teal-600'>info@DicTech.com</a> or through the contact form on our website. We look forward to collaborating with you!"
+          />
+          
         </div>
+        
       </section>
-    
-        </PageLayout>
+    </PageLayout>
   );
 };
 

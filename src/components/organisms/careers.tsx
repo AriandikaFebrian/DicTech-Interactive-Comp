@@ -1,116 +1,157 @@
-import React from "react";
-import PageLayout from "../layouts/pagelayout";
+'use client'
 
-const CareersPage = () => {
+import PageLayout from "@/components/layouts/pagelayout";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
+interface JobCardProps {
+  date: string;
+  title: string;
+  department: string;
+  image: string;
+  location: string;
+  description: string;
+  link: string;
+}
+
+const jobs = [
+  {
+    date: "01 AUG 2025",
+    title: "Frontend Developer (React & Next.js)",
+    department: "Engineering",
+    image: "/images/career/frontend.jpg",
+    location: "Remote - Indonesia",
+    description:
+      "Build beautiful and scalable web interfaces with React, Next.js, and TailwindCSS. Work with a creative and dynamic team.",
+    link: "/careers/frontend-developer"
+  },
+  {
+    date: "28 JUL 2025",
+    title: "UI/UX Designer",
+    department: "Design",
+    image: "/images/career/uiux.jpg",
+    location: "On-site - Jakarta",
+    description:
+      "Design intuitive, engaging, and visually appealing interfaces for web and mobile applications. Collaborate closely with engineers and product managers.",
+    link: "/careers/uiux-designer"
+  },
+  {
+    date: "20 JUL 2025",
+    title: "Backend Developer (Node.js)",
+    department: "Engineering",
+    image: "/images/career/backend.jpg",
+    location: "Hybrid - Bandung",
+    description:
+      "Develop high-performance backend services, integrate APIs, and ensure system scalability for millions of users.",
+    link: "/careers/backend-developer"
+  },
+  {
+    date: "15 JUL 2025",
+    title: "Marketing Specialist",
+    department: "Marketing",
+    image: "/images/career/marketing.jpg",
+    location: "Remote - Worldwide",
+    description:
+      "Plan and execute digital marketing strategies, manage social media campaigns, and analyze performance metrics to grow our audience.",
+    link: "/careers/marketing-specialist"
+  }
+];
+
+const JobCard: React.FC<JobCardProps> = ({
+  date,
+  title,
+  department,
+  image,
+  location,
+  description,
+  link,
+}) => {
+  const [day, month, year] = date.split(" ");
+
   return (
-        <PageLayout
-      title="The Story Behind DicTech Interactive"
-      subtitle="Discover how DicTech Interactive was born — from humble beginnings to a forward-thinking digital powerhouse led by Ari Andika Febrian."
-    >
-      <h1 className="text-3xl font-semibold text-gray-900 mb-6">Careers at DicTech Interactive™</h1>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row min-h-[500px]">
+      {/* Date */}
+      <div className="bg-gray-100 flex flex-col items-center justify-center px-4 py-6 md:w-20">
+        <span className="text-2xl font-bold text-gray-600">{day}</span>
+        <span className="text-xs uppercase tracking-wide text-gray-400">{month}</span>
+        <span className="text-xs text-gray-400">{year}</span>
+      </div>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Join Our Team</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          At DicTech Interactive™, we believe that innovation and creativity come from diverse perspectives. As a rapidly growing online startup, we are always on the lookout for talented and passionate individuals to join our team.
-        </p>
-        <p className="text-lg text-gray-700">
-          Working with us means being part of a dynamic and collaborative team that is focused on delivering cutting-edge solutions for startups and businesses worldwide. If you’re ready to make an impact, we want to hear from you!
-        </p>
-      </section>
+      {/* Content */}
+      <div className="flex-1 p-4 flex flex-col">
+        {/* Title */}
+        <h2 className="text-xl font-semibold text-gray-900 hover:text-teal-600 transition-colors">
+          <Link href={link}>{title}</Link>
+        </h2>
+        {/* Department */}
+        <p className="text-sm text-gray-500 mt-1">{department}</p>
 
-      {/* Open Positions Section */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Open Positions</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          We’re currently hiring for the following positions:
-        </p>
-
-        <div className="space-y-6">
-          {/* Full-stack Developer */}
-          <div className="border p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Full-stack Developer</h3>
-            <p className="text-lg text-gray-700 mb-4">
-              As a full-stack developer, you will work on both the frontend and backend of our platform, ensuring smooth user experiences and efficient server-side operations.
-            </p>
-            <ul className="list-disc pl-6 mb-4">
-              <li>Experience with React, Next.js, and Node.js</li>
-              <li>Strong understanding of REST APIs</li>
-              <li>Experience with SQL/NoSQL databases</li>
-              <li>Excellent problem-solving skills</li>
-            </ul>
-            <p className="text-lg text-gray-700 mb-4">
-              <strong>How to Apply:</strong> Send your resume and portfolio to <a href="mailto:careers@DicTech.com" className="text-teal-600">careers@DicTech.com</a>
-            </p>
-          </div>
-
-          {/* Product Designer */}
-          <div className="border p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Product Designer</h3>
-            <p className="text-lg text-gray-700 mb-4">
-              We are looking for a creative product designer to help us craft user-centric designs that make our platform easy to use and visually appealing.
-            </p>
-            <ul className="list-disc pl-6 mb-4">
-              <li>Proficiency in design tools such as Figma, Sketch, or Adobe XD</li>
-              <li>Experience in UX/UI design</li>
-              <li>Strong portfolio showcasing design skills</li>
-              <li>Ability to collaborate with developers and product managers</li>
-            </ul>
-            <p className="text-lg text-gray-700 mb-4">
-              <strong>How to Apply:</strong> Please email your resume and design portfolio to <a href="mailto:careers@DicTech.com" className="text-teal-600">careers@DicTech.com</a>
-            </p>
-          </div>
-
-          {/* Marketing Specialist */}
-          <div className="border p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Marketing Specialist</h3>
-            <p className="text-lg text-gray-700 mb-4">
-              We are looking for a marketing specialist who can help us grow our brand and reach more users through digital marketing strategies and campaigns.
-            </p>
-            <ul className="list-disc pl-6 mb-4">
-              <li>Experience with SEO, SEM, and social media marketing</li>
-              <li>Strong communication and copywriting skills</li>
-              <li>Experience with tools like Google Analytics and Facebook Ads</li>
-              <li>Ability to analyze data and generate actionable insights</li>
-            </ul>
-            <p className="text-lg text-gray-700 mb-4">
-              <strong>How to Apply:</strong> Send your resume and any relevant marketing campaigns you’ve worked on to <a href="mailto:careers@DicTech.com" className="text-teal-600">careers@DicTech.com</a>
-            </p>
+        {/* Image with location overlay */}
+        <div className="relative mt-3">
+          <Image
+            src={image}
+            alt={title}
+            className="w-full h-56 object-cover rounded-lg"
+            width={200}
+            height={150}
+          />
+          <div className="absolute top-0 right-0 bg-teal-600 text-white text-sm font-semibold px-3 py-2 rounded-bl-lg">
+            {location}
           </div>
         </div>
-      </section>
 
-      {/* Why Work With Us Section */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Why Work With Us?</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          At DicTech Interactive™, we offer more than just a job. We provide opportunities for growth, learning, and making a significant impact. Here’s what you can expect when you join our team:
-        </p>
-        <ul className="list-disc pl-6 space-y-3">
-          <li>Flexible working hours and remote work options</li>
-          <li>Competitive salary and benefits</li>
-          <li>Collaborative and creative team environment</li>
-          <li>Opportunities for career advancement and professional development</li>
-        </ul>
-      </section>
+        {/* Description */}
+        <p className="text-gray-700 mt-4 flex-grow">{description}</p>
 
-      {/* Application Process Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Application Process</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          Our application process is simple and straightforward:
-        </p>
-        <ol className="list-decimal pl-6 space-y-3">
-          <li>Submit your resume and portfolio to <a href="mailto:careers@DicTech.com" className="text-teal-600">careers@DicTech.com</a></li>
-          <li>Our team will review your application and contact you for an interview.</li>
-          <li>If you’re a great fit, we’ll extend an offer to join our team!</li>
-        </ol>
-        <p className="text-lg text-gray-700 mt-4">
-          We look forward to seeing how you can contribute to our growth and success. Don’t hesitate to apply today!
-        </p>
-      </section>
+        {/* Apply Button */}
+        <Link
+          href={link}
+          className="inline-block bg-teal-600 text-white text-sm font-semibold px-4 py-2 rounded-md mt-4 hover:bg-teal-500 transition-colors self-start"
+        >
+          APPLY NOW
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const CareerPage = () => {
+  const [visibleJobs, setVisibleJobs] = useState(4);
+
+  const loadMoreJobs = () => {
+    setVisibleJobs(prev => prev + 4); // Load 4 more jobs
+  };
+
+  return (
+    <PageLayout
+      title="Careers at DicTech Interactive"
+      subtitle="Join our passionate team and shape the future of technology together."
+    >
+      <div className="space-y-6">
+        <h2 className="text-lg font-semibold text-gray-900">Open Positions</h2>
+
+        {/* Job Cards with 2 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {jobs.slice(0, visibleJobs).map((job, index) => (
+            <JobCard key={index} {...job} />
+          ))}
+        </div>
+
+        {/* See More Button */}
+        {visibleJobs < jobs.length && (
+          <div className="text-center mt-6">
+            <button
+              onClick={loadMoreJobs}
+              className="inline-block bg-teal-600 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-teal-500 transition-colors"
+            >
+              See More
+            </button>
+          </div>
+        )}
+      </div>
     </PageLayout>
   );
 };
 
-export default CareersPage;
+export default CareerPage;
